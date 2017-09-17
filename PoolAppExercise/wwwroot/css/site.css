@@ -275,6 +275,8 @@ a, a:focus, a:hover, button:focus {
     display: none; }
   .app-header-content .app-logo {
     margin-left: 0.5rem; }
+  .app-header-content .desktop-nav-container {
+    display: none; }
   .app-footer-content {
     margin-bottom: 5rem; } }
 
@@ -289,6 +291,8 @@ a, a:focus, a:hover, button:focus {
     display: none; }
   .app-header-content .app-logo {
     margin-left: 0.5rem; }
+  .app-header-content .desktop-nav-container {
+    display: none; }
   .app-footer-content {
     margin-bottom: 5rem; }
   .input-field {
