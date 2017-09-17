@@ -1,0 +1,412 @@
+﻿body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+    font-family: $raleway;
+    background-color: #f8f8fa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $montserrat;
+    font-weight: 800;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a, button {
+    @include transition(all 0.3s ease-out);
+}
+
+button, input {
+    &[disabled] {
+        cursor: not-allowed !important;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+    }
+}
+
+a, a:focus, a:hover, button:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 16px 22px;
+    font-size: 0.825rem;
+    border-radius: 0.25rem;
+    font-family: $montserrat;
+    text-transform: uppercase;
+    color: #fff !important;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    &.btn-blue {
+        background-color: $blue;
+        border-color: $blue;
+    }
+
+    &.btn-green {
+        background-color: $green;
+        border-color: $green;
+    }
+
+    &.btn-red {
+        background-color: $red;
+        border-color: $red;
+    }
+
+    &.btn-cancel {
+        background-color: #e0e0e0;
+        border-color: #e0e0e0;
+        color: $black !important;
+    }
+
+    &.w-logo {
+        i {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.app-header-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: $white;
+    text-align: center;
+    z-index: 1000;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+
+    .container {
+        position: relative;
+    }
+
+    .home-link {
+        position: absolute;
+        top: 1.6rem;
+        left: 1rem;
+
+        a {
+            font-family: $montserrat;
+            font-size: 1.025rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02rem;
+            font-weight: 800;
+            color: $black;
+        }
+    }
+
+    h2 {
+        display: inline-block;
+        font-size: 1.025rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02rem;
+        margin: 0;
+        color: $black;
+    }
+
+    .app-logo {
+        display: inline-block;
+        position: relative;
+        top: 0.75rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-left: 1rem;
+    }
+
+    .desktop-nav-container {
+        position: absolute;
+        top: 0.6rem;
+        right: 1rem;
+
+        .desktop-nav {
+            display: inline-block;
+            padding: 16px 22px;
+
+            .desktop-nav-list {
+                display: flex;
+                display: -webkit-flex;
+                -webkit-flex-direction: row;
+                flex-direction: row;
+                -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-align-content: center;
+                align-content: center;
+
+                li {
+                    margin-right: 1rem;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    a {
+                        padding: 0.5rem;
+                        font-size: 0.825rem;
+
+                        &.active {
+                            color: $yellow;
+                        }
+                    }
+                }
+            }
+        }
+
+        .new-game-action {
+            display: none;
+
+            &.show {
+                display: inline-block
+            }
+        }
+    }
+}
+
+.app-main-content {
+    margin-top: 70px;
+}
+
+.app-footer-content {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+
+    .app-logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        opacity: 0.5;
+        @include transform(translate(-50%, -50%));
+    }
+}
+
+.page-container {
+    padding: 3rem 0;
+
+    .container {
+        position: relative;
+    }
+}
+
+.page-title {
+    display: inline-block;
+    color: #e0e0e0;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    margin-bottom: 2rem;
+}
+
+.action-buttons-container {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+}
+
+.input-field-container {
+    position: relative;
+    margin-bottom: 1rem;
+
+    .input-field {
+        margin-bottom: 0.5rem;
+    }
+
+    label {
+        font-size: 0.825rem;
+    }
+
+    .error-message {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.5rem;
+        color: $red;
+    }
+}
+
+.input-field {
+    position: relative;
+    display: block;
+    padding: 1.2em;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    background: $white;
+    color: $black;
+    font-weight: bold;
+    -webkit-appearance: none;
+    box-shadow: 0px 0px 0px 2px transparent;
+    @include transition(all 0.3s ease-out);
+
+    &:focus {
+        box-shadow: 0px 0px 0px 2px $blue;
+    }
+}
+
+.mobile-nav-container {
+    position: fixed;
+    bottom: 0;
+    background-color: $white;
+    width: 100%;
+    height: 52px;
+
+    &.hide {
+        display: none;
+    }
+
+    .mobile-nav {
+        .mobile-nav-list {
+            display: flex;
+            display: -webkit-flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-align-content: center;
+            align-content: center;
+
+            .mobile-nav-item {
+                width: calc(100% / 3);
+
+                &.new-game {
+                    background-color: $green;
+
+                    a {
+                        color: $white;
+
+                        &.disabled {
+                            pointer-events: none;
+                            cursor: not-allowed !important;
+                            filter: alpha(opacity=65);
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                            opacity: .65;
+                        }
+                    }
+                }
+
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 0.6rem;
+                    color: $black;
+
+                    &.active {
+                        color: $yellow;
+                    }
+
+                    i, span {
+                        display: block;
+                    }
+
+                    i {
+                        font-size: 1.25rem;
+                        margin-bottom: 0.2rem;
+                    }
+
+                    span {
+                        font-size: 0.625rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Extra Small Devices
+@media (max-width: 575px) {
+    .page-container {
+        padding: 1.5rem 0;
+    }
+
+    .page-title {
+        display: block;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .app-header-content {
+        .new-game-action {
+            display: none;
+        }
+
+        .app-logo {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .app-footer-content {
+        margin-bottom: 5rem;
+    }
+}
+
+// Small Devices
+@media (min-width: 576px) and (max-width: 767px) {
+    .page-container {
+        padding: 1.5rem 0;
+    }
+
+    .page-title {
+        display: block;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .app-header-content {
+        .new-game-action {
+            display: none;
+        }
+
+        .app-logo {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .app-footer-content {
+        margin-bottom: 5rem;
+    }
+
+    .input-field {
+        padding: 0.6rem;
+
+        label {
+            font-size: 0.725rem;
+        }
+    }
+}
+
+

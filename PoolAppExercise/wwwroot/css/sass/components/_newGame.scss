@@ -1,0 +1,552 @@
+﻿.game-page-title {
+    text-align: center;
+    font-size: 2.4rem;
+    display: block;
+    margin-top: 0;
+}
+
+.new-game-select-container {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    align-content: center;
+
+    .selected-player-container {
+        position: fixed;
+        top: 50%;
+        text-align: center;
+        @include transform(translateY(-50%));
+
+        &.first-player {
+            left: 10vw;
+        }
+
+        &.second-player {
+            right: 10vw;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        .selected-player-image {
+            display: inline-block;
+            width: 10rem;
+            height: 10rem;
+            padding: 2.5rem;
+            border-radius: 50%;
+            background-color: #ebebeb;
+            text-align: center;
+            opacity: 0.5;
+            margin-bottom: 2rem;
+            @include transition(all 0.3s ease-out);
+
+            &.first-set, &.second-set {
+                opacity: 1;
+            }
+
+            i {
+                font-size: 5rem;
+                color: $gray;
+            }
+        }
+
+        .selected-player-info {
+            width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+        }
+    }
+
+    .select-player-list {
+        width: 30vw;
+
+        li {
+            padding: 1.6rem 0.8rem;
+            text-align: center;
+            background-color: $white;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            @include transition(all 0.3s ease-out);
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                -webkit-box-shadow: 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25);
+                box-shadow: 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25);
+            }
+
+            &.selected {
+                border-color: $blue;
+            }
+
+            &.disabled {
+                cursor: not-allowed !important;
+                filter: alpha(opacity=65);
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                opacity: .65;
+                pointer-events: none;
+            }
+
+            .player-image {
+                display: inline-block;
+                width: 2.5rem;
+                height: 2.5rem;
+                padding: 0.5rem;
+                border-radius: 50%;
+                background-color: #ebebeb;
+                margin-right: 1rem;
+
+                i {
+                    font-size: 1.2rem;
+                    color: $gray;
+                }
+            }
+        }
+    }
+}
+
+.new-game-action-container {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 80px;
+    z-index: 100;
+    padding: 0.9rem 0;
+    background-color: $white;
+    border-top: 1px solid #e0e0e0;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 5px 0 rgba(0, 0, 0, 0.02), 0 3px 1px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 5px 0 rgba(0, 0, 0, 0.02), 0 3px 1px -2px rgba(0, 0, 0, 0.05);
+
+    .select-player-action {
+        display: flex;
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-align-content: center;
+        align-content: center;
+
+        h3 {
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            margin: 0.9rem 5rem;
+        }
+
+        .btn-cancel {
+            opacity: 0;
+            visibility: hidden;
+
+            &.show {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .btn-select {
+            &.hide {
+                display: none;
+            }
+        }
+
+        .btn-start {
+            display: none;
+
+            &.show {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.new-game-progress-container {
+    position: relative;
+    padding: 0 !important;
+    width: 100%;
+    height: calc(100vh - 160px);
+}
+
+.new-game-progress-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+
+    .game-page-title {
+        margin: 0;
+    }
+
+    .end-game-button {
+        width: 100%;
+        margin-top: 10rem;
+        text-align: center;
+    }
+}
+
+.progress-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    filter: url('#goo');
+    @include transform(translate(-50%, -50%));
+    animation: rotate-move 2s ease-in-out infinite;
+
+    .dot {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .dot-3 {
+        background-color: $red;
+        animation: dot-3-move 2s ease infinite, index 6s ease infinite;
+    }
+
+    .dot-2 {
+        background-color: $blue;
+        animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
+    }
+
+    .dot-1 {
+        background-color: $black;
+        animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
+    }
+}
+
+.winner-selection-container {
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: calc(70vh - 160px);
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    align-content: center;
+
+    .players-list {
+        width: 30vw;
+
+        li {
+            padding: 1.6rem 0.8rem;
+            text-align: center;
+            background-color: $white;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            @include transition(all 0.3s ease-out);
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                -webkit-box-shadow: 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25);
+                box-shadow: 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25);
+            }
+
+            &.selected {
+                border-color: $blue;
+            }
+        }
+    }
+}
+
+.confirm-button-container {
+    width: 100%;
+    text-align: center;
+}
+
+
+@keyframes dot-3-move {
+    20% {
+        transform: scale(1)
+    }
+
+    45% {
+        transform: translateY(-18px) scale(.45)
+    }
+
+    60% {
+        transform: translateY(-90px) scale(.45)
+    }
+
+    80% {
+        transform: translateY(-90px) scale(.45)
+    }
+
+    100% {
+        transform: translateY(0px) scale(1)
+    }
+}
+
+@keyframes dot-2-move {
+    20% {
+        transform: scale(1)
+    }
+
+    45% {
+        transform: translate(-16px, 12px) scale(.45)
+    }
+
+    60% {
+        transform: translate(-80px, 60px) scale(.45)
+    }
+
+    80% {
+        transform: translate(-80px, 60px) scale(.45)
+    }
+
+    100% {
+        transform: translateY(0px) scale(1)
+    }
+}
+
+@keyframes dot-1-move {
+    20% {
+        transform: scale(1)
+    }
+
+    45% {
+        transform: translate(16px, 12px) scale(.45)
+    }
+
+    60% {
+        transform: translate(80px, 60px) scale(.45)
+    }
+
+    80% {
+        transform: translate(80px, 60px) scale(.45)
+    }
+
+    100% {
+        transform: translateY(0px) scale(1)
+    }
+}
+
+@keyframes rotate-move {
+    55% {
+        transform: translate(-50%, -50%) rotate(0deg)
+    }
+
+    80% {
+        transform: translate(-50%, -50%) rotate(360deg)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg)
+    }
+}
+
+@keyframes index {
+    0%, 100% {
+        z-index: 3
+    }
+
+    33.3% {
+        z-index: 2
+    }
+
+    66.6% {
+        z-index: 1
+    }
+}
+
+
+// Extra Small Devices
+@media (max-width: 575px) {
+    .new-game-container {
+        .new-game-select-container {
+            .selected-player-container {
+                top: 70px;
+                background-color: $white;
+                @include transform(none);
+                z-index: 10;
+                height: 200px;
+                padding: 1rem 0;
+
+                &.first-player {
+                    left: 0;
+                }
+
+                &.second-player {
+                    right: 0;
+                }
+
+                h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                }
+
+                .selected-player-info {
+                    width: 188px;
+                    padding: 0 1rem;
+                }
+
+                .selected-player-image {
+                    width: 5rem;
+                    height: 5rem;
+                    padding: 1.25rem;
+
+                    i {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+
+            .select-player-list {
+                width: 100%;
+                margin-top: 12rem;
+            }
+        }
+    }
+
+    .new-game-action-container {
+        bottom: 52px;
+        height: 60px;
+        padding: 0.6rem 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+        .container {
+            padding: 0 0.1rem;
+        }
+
+        .select-player-action {
+            h3 {
+                margin: 0.9rem 1.2rem 0.9rem 0.8rem;
+                font-size: 0.725rem;
+                letter-spacing: 0;
+            }
+
+            .btn {
+                padding: 8px 12px;
+                font-size: 0.625rem;
+            }
+        }
+    }
+
+    .winner-selection-container {
+        .players-list {
+            width: 100%;
+        }
+    }
+}
+
+// Small Devices
+@media (min-width: 576px) and (max-width: 767px) {
+    .new-game-container {
+        .new-game-select-container {
+            .selected-player-container {
+                padding: 1rem 0;
+                top: 70px;
+                @include transform(none);
+                height: 200px;
+                z-index: 10;
+
+                &.first-player {
+                    left: 0;
+                }
+
+                &.second-player {
+                    right: 0;
+                }
+
+                h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                }
+
+                .selected-player-info {
+                    width: 173px;
+                    padding: 0 1rem;
+                }
+
+                .selected-player-image {
+                    width: 5rem;
+                    height: 5rem;
+                    padding: 1.25rem;
+
+                    i {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+
+            .select-player-list {
+                width: 100%;
+            }
+        }
+    }
+
+    .new-game-action-container {
+        bottom: 52px;
+        height: 60px;
+        height: 60px;
+        padding: 0.6rem 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+        .container {
+            padding: 0 0.1rem;
+        }
+
+        .select-player-action {
+            h3 {
+                margin: 0.9rem 1.5rem 0.9rem 0.8rem;
+                font-size: 0.825rem;
+                letter-spacing: 0.15rem;
+            }
+
+            .btn {
+                padding: 8px 12px;
+                font-size: 0.625rem;
+            }
+        }
+    }
+
+    .winner-selection-container {
+        .players-list {
+            width: 100%;
+        }
+    }
+}

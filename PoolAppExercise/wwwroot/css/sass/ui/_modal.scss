@@ -1,0 +1,234 @@
+﻿.ReactModalPortal {
+    > div {
+        opacity: 0;
+    }
+
+    .ReactModal__Overlay {
+        @include transition(all 300ms ease-in-out);
+
+        &--after-open {
+            opacity: 1;
+        }
+
+        &--before-close {
+            opacity: 0;
+        }
+    }
+
+    .ReactModal__Content {
+        @include transition(all 300ms ease-in-out);
+
+        &--after-open {
+            opacity: 1;
+            @include transform(translate(-50%, -50%) scale(1));
+        }
+
+        &--before-close {
+            opacity: 0;
+            @include transform(translate(-50%, -50%) scale(0.8));
+        }
+    }
+
+    .notification-modal {
+        @include transition(all 300ms ease-in-out);
+
+        &.ReactModal__Content--after-open {
+            opacity: 1;
+            @include transform(translate(-50%, 0));
+        }
+
+        &.ReactModal__Content--before-close {
+            opacity: 0;
+            @include transform(translate(-50%, 100px));
+        }
+    }
+}
+
+.overlay-black {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background-color: rgba(0,0,0,0.25);
+}
+
+.overlay-none {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background-color: transparent;
+}
+
+.creation-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%) scale(0.8));
+    width: 27.5vw;
+    height: 62.5vh;
+    padding: 2rem;
+    background-color: #f8f8fa;
+    border-radius: 0.5rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    .close-icon {
+        position: absolute;
+        top: 1.75rem;
+        right: 1.5rem;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        i {
+            color: $gray;
+            font-size: 1.25rem;
+        }
+    }
+
+    .add-button-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: $blue;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+
+        .btn-add {
+            width: 100%;
+            border-radius: 0;
+            text-align: center;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+    }
+}
+
+.notification-modal {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    @include transform(translate(-50%, 100px));
+    padding: 0.8rem 3.2rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: $green;
+
+    .close-icon {
+        position: absolute;
+        top: 0.7rem;
+        right: 0.5rem;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        i {
+            color: $white;
+            font-size: 1.25rem;
+        }
+    }
+
+    p {
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-family: $montserrat;
+        color: $white;
+        font-weight: 800;
+
+        i {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.confirmation-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%) scale(0.8));
+    width: 30vw;
+    height: 30vh;
+    padding: 2rem 1rem;
+    background-color: #f8f8fa;
+    border-radius: 0.5rem;
+    text-align: center;
+
+    &:focus {
+        outline: none;
+    }
+
+    .delete-player-icon {
+        font-size: 2.4rem;
+        color: $red;
+        margin-bottom: 1.2rem;
+    }
+
+    .winner-player-icon {
+        font-size: 2.4rem;
+        color: $yellow;
+        margin-bottom: 1.2rem;
+    }
+
+    .modal-action-buttons-container {
+        margin-top: 1.5rem;
+        width: 100%;
+
+        .btn {
+            margin-right: 1rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+// Extra Small Devices
+@media (max-width: 575px) {
+    .creation-modal {
+        width: 75vw;
+        height: 72.5vh;
+    }
+
+    .confirmation-modal {
+        width: 80vw;
+        height: 35vh;
+    }
+}
+
+// Small Devices
+@media (min-width: 576px) and (max-width: 767px) {
+    .creation-modal {
+        width: 75vw;
+        height: 90vh;
+        padding: 1rem 2rem;
+
+        .close-icon {
+            top: 1.25rem;
+        }
+
+        .add-player-form-container {
+            .add-player-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.6rem;
+            }
+        }
+    }
+
+    .confirmation-modal {
+        width: 80vw;
+        height: 55vh;
+        padding: 1.5rem 1rem;
+    }
+}

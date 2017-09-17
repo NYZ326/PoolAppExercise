@@ -1,0 +1,13 @@
+﻿import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
+
+import App from './components/app';
+
+// Root rendering of application
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('pool-app-root')
+);

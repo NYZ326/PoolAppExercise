@@ -1,0 +1,67 @@
+﻿.wins-color {
+    color: $green;
+    font-weight: bold;
+}
+
+.losses-color {
+    color: $red;
+    font-weight: bold;
+}
+
+.first-place-color {
+    color: $yellow;
+}
+
+.helper-text {
+    font-size: 0.825rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.no-events {
+    pointer-events: none;
+}
+
+.mobile-display {
+    display: block;
+}
+
+.desktop-display {
+    display: block;
+}
+
+
+// Extra Small Devices
+@media (max-width: 575px) {
+    .desktop-display {
+        display: none !important;
+    }
+}
+
+// Small Devices
+@media (min-width: 576px) and (max-width: 767px) {
+    .desktop-display {
+        display: none !important;
+    }
+}
+
+// Medium Devices
+@media (min-width: 768px) and (max-width: 991px) {
+    .mobile-display {
+        display: none !important;
+    }
+}
+
+// Large Devices
+@media (min-width: 992px) and (max-width: 1199px) {
+    .mobile-display {
+        display: none !important;
+    }
+}
+
+// Extra Large Devices
+@media (min-width: 1200px) {
+    .mobile-display {
+        display: none !important;
+    }
+}

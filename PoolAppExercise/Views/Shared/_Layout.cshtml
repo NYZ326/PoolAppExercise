@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pool App Exercise</title>
+    <base href="~/" />
+
+    <link rel="stylesheet" href="~/css/plugin/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/plugin/bootstrap-grid.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <script src="https://use.fontawesome.com/69f0e95e54.js"></script>
+    <script>
+        var GLOBAL_BASE_URL = '@Url.Content("~")';
+    </script>
+</head>
+<body>
+    @RenderBody()
+
+    <script src="~/js/build.js" asp-append-version="true"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

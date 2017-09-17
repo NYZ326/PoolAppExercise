@@ -1,0 +1,519 @@
+﻿.leaderboard-container {
+    .top-players-filter {
+        position: relative;
+        top: 0.5rem;
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+        font-family: $montserrat;
+
+        .Dropdown-control {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            box-sizing: border-box;
+            color: $black;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            padding: 8px 30px 8px 10px;
+            transition: all 200ms ease;
+
+            .Dropdown-arrow {
+                border-color: $black transparent transparent;
+                border-style: solid;
+                border-width: 3px 3px 0;
+                content: ' ';
+                display: block;
+                height: 0;
+                margin-top: -ceil(2.5);
+                position: absolute;
+                right: 10px;
+                top: 14px;
+                width: 0;
+            }
+        }
+
+        .Dropdown-menu {
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+            box-sizing: border-box;
+            margin-top: -1px;
+            width: 76px;
+            display: block;
+            max-height: 200px;
+            overflow-y: auto;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            z-index: 1000;
+            -webkit-overflow-scrolling: touch;
+
+            .Dropdown-option {
+                box-sizing: border-box;
+                color: $gray;
+                cursor: pointer;
+                display: block;
+                padding: 12px 10px;
+                @include transition(all 0.3s ease-out);
+            }
+        }
+    }
+}
+
+.leaderboard-list-container {
+    .column-headers {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+
+        .column-headers-list {
+            display: flex;
+            display: -webkit-flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-align-content: center;
+            align-content: center;
+
+            li {
+                width: calc(100% / 4);
+                padding: 1.2rem 0.8rem;
+                text-align: center;
+                font-size: 0.825rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .table-data {
+        .table-data-list {
+            > li {
+                margin-bottom: 1rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                &.first-place-player {
+                    margin-bottom: 5rem;
+                }
+
+                .first-place-container {
+                    position: relative;
+                    text-align: center;
+
+                    .first-place-image {
+                        display: inline-block;
+                        width: 8rem;
+                        height: 8rem;
+                        padding: 2rem;
+                        border-radius: 50%;
+                        background-color: #ebebeb;
+                        margin-bottom: 1rem;
+
+                        i {
+                            font-size: 3.8rem;
+                            color: $gray;
+                        }
+                    }
+
+                    .first-place-info {
+                        margin-bottom: 3rem;
+
+                        .full-name {
+                            font-weight: 800;
+                            text-transform: uppercase;
+                            margin: 0;
+                            margin-bottom: 1rem;
+                            color: $black;
+                            font-size: 2.4rem;
+                        }
+
+                        .username {
+                            text-transform: uppercase;
+                            letter-spacing: 0.2rem;
+                            color: $gray;
+                            font-size: 0.825rem;
+                        }
+                    }
+
+                    .first-place-stats {
+                        position: relative;
+                        display: flex;
+                        display: -webkit-flex;
+                        -webkit-flex-direction: row;
+                        flex-direction: row;
+                        -webkit-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                        -webkit-justify-content: center;
+                        justify-content: center;
+                        -webkit-align-items: center;
+                        align-items: center;
+                        -webkit-align-content: center;
+                        align-content: center;
+
+                        div {
+                            width: calc(100% / 3);
+
+                            h3 {
+                                font-size: 4rem;
+                                margin: 0;
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .other-players-container {
+                    background-color: $white;
+                    width: 100%;
+                    position: relative;
+                    display: flex;
+                    display: -webkit-flex;
+                    -webkit-flex-direction: row;
+                    flex-direction: row;
+                    -webkit-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                    -webkit-align-items: center;
+                    align-items: center;
+                    -webkit-align-content: center;
+                    align-content: center;
+                    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+                    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.05);
+
+                    .rank-info {
+                        position: absolute;
+                        top: 2.3rem;
+                        left: 2rem;
+                        font-weight: bold;
+                        width: auto !important;
+                        padding: 0;
+                    }
+
+
+                    div {
+                        width: calc(100% / 4);
+                        padding: 1.6rem 0.8rem;
+                        text-align: center;
+                        font-size: 0.825rem;
+
+                        &.select-button-container {
+                            width: auto;
+                            position: absolute;
+                            left: -3.5rem;
+                            top: 2rem;
+                            padding: 0;
+
+                            .select-button {
+                                display: inline-block;
+                                width: 2rem;
+                                height: 2rem;
+                                border: 1px solid #e0e0e0;
+                                border-radius: 50%;
+                                padding: 0.5rem;
+
+                                i {
+                                    color: transparent;
+                                }
+                            }
+                        }
+
+                        &.player-image {
+                            display: inline-block;
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            padding: 0.5rem;
+                            border-radius: 50%;
+                            background-color: #ebebeb;
+
+                            i {
+                                font-size: 1.2rem;
+                                color: $gray;
+                            }
+                        }
+
+                        &.player-name {
+                            display: inline-block;
+                            position: relative;
+                            padding: 0;
+                            width: 100px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Extra Small Devices
+@media (max-width: 575px) {
+    .leaderboard-container {
+        .top-players-filter {
+            display: block;
+            text-align: center;
+            margin: 0;
+
+            .Dropdown-control {
+                width: 25vw;
+                margin: 0 auto;
+            }
+
+            .Dropdown-menu {
+                width: 25vw;
+                margin: 0 auto;
+                left: 50%;
+                @include transform(translateX(-50%));
+            }
+        }
+
+        .action-buttons-container {
+            display: none;
+        }
+
+        .leaderboard-list-container {
+            margin-top: 2rem;
+
+            .table-data .table-data-list {
+                li.first-place-player {
+                    margin-bottom: 3rem;
+                }
+            }
+        }
+    }
+
+    .first-place-container {
+        .rank-info {
+            display: none;
+        }
+    }
+
+    .first-place-image {
+        position: relative;
+
+        .mobile-rank {
+            position: absolute;
+            top: 0;
+            left: -1rem;
+            font-size: 2rem;
+            font-family: $montserrat;
+            font-weight: 800;
+        }
+    }
+
+    .column-headers-list {
+        justify-content: flex-start !important;
+        align-content: flex-start !important;
+
+        li {
+            width: 25% !important;
+
+            &.column-header-item {
+                &.player-column {
+                    width: 50% !important;
+                }
+
+                &.username-column {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .username-info {
+        display: none;
+    }
+
+    .other-players-container {
+        justify-content: flex-start !important;
+        align-content: flex-start !important;
+
+        > div {
+            width: 25% !important;
+            padding: 1rem 0.4rem !important;
+
+            &.rank-info {
+                top: -1.65rem !important;
+                left: 0 !important;
+                font-size: 1.025rem !important;
+            }
+
+            &.player-info {
+                width: 50% !important;
+
+                .player-name {
+                    position: relative;
+                    top: 0.4rem;
+                }
+            }
+        }
+    }
+}
+
+
+// Small Devices
+@media (min-width: 576px) and (max-width: 767px) {
+    .leaderboard-container {
+        .top-players-filter {
+            display: block;
+            text-align: center;
+            margin: 0;
+
+            .Dropdown-control {
+                width: 25vw;
+                margin: 0 auto;
+            }
+
+            .Dropdown-menu {
+                width: 25vw;
+                margin: 0 auto;
+                left: 50%;
+                @include transform(translateX(-50%));
+            }
+        }
+
+        .action-buttons-container {
+            display: none;
+        }
+
+        .leaderboard-list-container {
+            margin-top: 2rem;
+
+            .table-data .table-data-list {
+                li.first-place-player {
+                    margin-bottom: 3rem;
+                }
+            }
+        }
+    }
+
+    .first-place-container {
+        .rank-info {
+            display: none;
+        }
+    }
+
+    .first-place-image {
+        position: relative;
+
+        .mobile-rank {
+            position: absolute;
+            top: 0;
+            left: -1rem;
+            font-size: 2rem;
+            font-family: $montserrat;
+            font-weight: 800;
+        }
+    }
+
+    .column-headers-list {
+        justify-content: flex-start !important;
+        align-content: flex-start !important;
+
+        li {
+            width: 25% !important;
+
+            &.column-header-item {
+                &.player-column {
+                    width: 50% !important;
+                }
+
+                &.username-column {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .username-info {
+        display: none;
+    }
+
+    .other-players-container {
+        justify-content: flex-start !important;
+        align-content: flex-start !important;
+
+        > div {
+            width: 25% !important;
+
+            &.rank-info {
+                top: -0.6rem !important;
+                left: 0 !important;
+                font-size: 1.025rem !important;
+            }
+
+            &.player-info {
+                width: 50% !important;
+
+                .player-name {
+                    position: relative;
+                    top: 0.4rem;
+                }
+            }
+        }
+    }
+}
+
+// Medium Devices
+@media (min-width: 768px) and (max-width: 991px) {
+    .mobile-rank {
+        display: none;
+    }
+
+    .column-header-item {
+        &.username-column {
+            display: block;
+        }
+    }
+
+    .other-players-container {
+        > div {
+            &.rank-info {
+                top: -0.5rem !important;
+                left: 0 !important;
+            }
+        }
+    }
+}
+
+// Large Devices
+@media (min-width: 992px) and (max-width: 1199px) {
+    .mobile-rank {
+        display: none;
+    }
+
+    .column-header-item {
+        &.username-column {
+            display: block;
+        }
+    }
+
+    .other-players-container {
+        > div {
+            &.rank-info {
+                left: 1.5rem !important;
+            }
+        }
+    }
+}
+
+// Extra Large Devices
+@media (min-width: 1200px) {
+    .mobile-rank {
+        display: none;
+    }
+
+    .column-header-item {
+        &.username-column {
+            display: block;
+        }
+    }
+}
