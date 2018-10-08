@@ -1,6 +1,6 @@
 # PoolAppExercise
 
-O3 World - Pool App Exercise
+Pool App Exercise
 
 Built with:
 
